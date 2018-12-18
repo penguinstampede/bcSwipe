@@ -6,6 +6,8 @@
  *
  * @license MIT
  */
+import detectPassiveEvents from 'detect-passive-events';
+
 (function($) {
   $.fn.bcSwipe = function(settings) {
     var config = { threshold: 50 };
@@ -18,14 +20,20 @@
       var start;
 
       if ('ontouchstart' in document.documentElement) {
-        this.addEventListener('touchstart', onTouchStart, false);
+        this.addEventListener(
+          'touchstart',
+          onTouchStart,
+          detectPassiveEvents.hasSupport ? {'passive': true} : false);
       }
 
       function onTouchStart(e) {
         if (e.touches.length == 1) {
           start = e.touches[0].pageX;
           stillMoving = true;
-          this.addEventListener('touchmove', onTouchMove, false);
+          this.addEventListener(
+            'touchmove',
+            onTouchMove,
+            detectPassiveEvents.hasSupport ? {'passive': true} : false);
         }
       }
 
