@@ -6,8 +6,6 @@
  *
  * @license MIT
  */
-import detectPassiveEvents from 'detect-passive-events';
-
 
 (function($) {
   $.fn.bcSwipe = function(settings) {
