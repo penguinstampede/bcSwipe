@@ -34,7 +34,7 @@ import detectPassiveEvents from 'detect-passive-events';
           this.addEventListener(
             'touchmove',
             onTouchMove,
-            detectPassiveEvents.hasSupport ? {'passive': true} : false);
+            detectPassiveEvents.hasSupport ? {'passive': false} : false);
         }
       }
 
