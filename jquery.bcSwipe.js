@@ -24,7 +24,7 @@ import detectPassiveEvents from 'detect-passive-events';
         this.addEventListener(
           'touchstart',
           onTouchStart,
-          detectPassiveEvents.hasSupport ? {'passive': true} : false);
+          {'passive': true});
       }
 
       function onTouchStart(e) {
@@ -34,7 +34,7 @@ import detectPassiveEvents from 'detect-passive-events';
           this.addEventListener(
             'touchmove',
             onTouchMove,
-            detectPassiveEvents.hasSupport ? {'passive': true} : false);
+            {'passive': true});
         }
       }
 
